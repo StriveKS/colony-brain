@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/StriveKS/colony-brain/schemas/agent_log.schema.json",
+  "title": "COLONIA Agent Log",
+  "type": "object",
+  "required": ["agent_id", "generation", "task_id", "outcome", "fitness", "genome", "skills_manifest", "skill_usage_events", "history", "timestamp"],
+  "properties": {
+    "agent_id": {"type": "string"},
+    "generation": {"type": "integer"},
+    "task_id": {"type": "string"},
+    "outcome": {"type": "string", "enum": ["success", "partial", "failure", "error"]},
+    "fitness": {"type": "number"},
+    "genome": {"type": "object"},
+    "skills_manifest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "version", "status"],
+        "properties": {
+          "skill_id": {"type": "string"},
+          "version": {"type": "string"},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    "skill_usage_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "event", "result"],
+        "properties": {
+          "skill_id": {"type": "string"},
+          "event": {"type": "string"},
+          "barrier": {"type": "string"},
+          "result": {"type": "string"},
+          "impact": {"type": "string"},
+          "timestamp": {"type": "string"}
+        }
+      }
+    },
+    "history": {"type": "array"},
+    "timestamp": {"type": "string"}
+  }
+}
