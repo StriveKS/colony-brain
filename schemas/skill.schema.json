@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/StriveKS/colony-brain/schemas/skill.schema.json",
+  "title": "COLONIA Skill",
+  "type": "object",
+  "required": ["skill_id", "name", "version", "status", "environment", "description", "inputs", "outputs", "evidence", "tests"],
+  "properties": {
+    "skill_id": {"type": "string", "pattern": "^[a-z0-9_\\-]+$"},
+    "name": {"type": "string"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "status": {"type": "string", "enum": ["candidate", "experimental", "validated", "trusted", "deprecated"]},
+    "environment": {"type": "string"},
+    "barriers": {"type": "array", "items": {"type": "string"}},
+    "description": {"type": "string"},
+    "preconditions": {"type": "array", "items": {"type": "string"}},
+    "inputs": {"type": "object"},
+    "outputs": {"type": "object"},
+    "parameters": {"type": "object"},
+    "risks": {"type": "array", "items": {"type": "string"}},
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "summary"],
+        "properties": {
+          "source": {"type": "string"},
+          "summary": {"type": "string"},
+          "fitness_delta": {"type": "number"},
+          "agent_id": {"type": "string"},
+          "generation": {"type": "integer"}
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["test_id", "description", "expected_result"],
+        "properties": {
+          "test_id": {"type": "string"},
+          "description": {"type": "string"},
+          "expected_result": {"type": "string"}
+        }
+      }
+    },
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"}
+  }
+}
