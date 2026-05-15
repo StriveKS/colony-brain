@@ -1,0 +1,57 @@
+{
+  "agent_id": "agent_c9a280bf",
+  "generation": 1,
+  "task_id": "mvp_task_01",
+  "outcome": "partial",
+  "fitness": 178.1919617652893,
+  "genome": {
+    "retry_limit": 2,
+    "wait_between_retries": 1.0,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "timeout": 5.0,
+    "exploration_rate": 0.1
+  },
+  "history": [
+    {
+      "url": "https://www.google.com",
+      "attempts": [
+        {
+          "try": 0,
+          "status": 200,
+          "time": 2.539609670639038
+        }
+      ]
+    },
+    {
+      "url": "https://www.github.com",
+      "attempts": [
+        {
+          "try": 0,
+          "status": 200,
+          "time": 2.689152240753174
+        }
+      ]
+    },
+    {
+      "url": "https://httpbin.org/status/404",
+      "attempts": [
+        {
+          "try": 0,
+          "status": 404,
+          "time": 4.70097279548645
+        },
+        {
+          "try": 1,
+          "status": 404,
+          "time": 7.5713889598846436
+        },
+        {
+          "try": 2,
+          "status": 404,
+          "time": 10.904010534286499
+        }
+      ]
+    }
+  ],
+  "timestamp": "2026-05-15T02:55:36.509706Z"
+}
