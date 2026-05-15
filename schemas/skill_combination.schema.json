@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/StriveKS/colony-brain/schemas/skill_combination.schema.json",
+  "title": "COLONIA Skill Combination",
+  "type": "object",
+  "required": ["combination_id", "task_id", "mode", "skills", "recommendation", "test_results"],
+  "properties": {
+    "combination_id": {"type": "string", "pattern": "^[a-z0-9_\\-]+$"},
+    "task_id": {"type": "string"},
+    "mode": {"type": "string", "enum": ["recommended", "winner_variant", "random_controlled"]},
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["skill_id", "version"],
+        "properties": {
+          "skill_id": {"type": "string"},
+          "version": {"type": "string"},
+          "status_at_selection": {"type": "string"}
+        }
+      }
+    },
+    "selection_reason": {"type": "string"},
+    "known_compatibilities": {"type": "array", "items": {"type": "string"}},
+    "known_incompatibilities": {"type": "array", "items": {"type": "string"}},
+    "operational_risk": {"type": "string", "enum": ["low", "medium", "high", "unknown"]},
+    "tested_by": {"type": "array", "items": {"type": "string"}},
+    "test_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "outcome"],
+        "properties": {
+          "run_id": {"type": "string"},
+          "outcome": {"type": "string"},
+          "fitness": {"type": "number"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "recommendation": {"type": "string", "enum": ["use", "test_more", "avoid", "archive"]},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"}
+  }
+}
