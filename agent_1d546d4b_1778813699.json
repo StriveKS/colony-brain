@@ -1,0 +1,66 @@
+{
+  "agent_id": "agent_1d546d4b",
+  "generation": 0,
+  "task_id": "mvp_task_01",
+  "outcome": "partial",
+  "fitness": 61.46742534637451,
+  "genome": {
+    "retry_limit": 2,
+    "wait_between_retries": 1.0,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "timeout": 5.0,
+    "exploration_rate": 0.1
+  },
+  "history": [
+    {
+      "url": "https://www.google.com",
+      "attempts": [
+        {
+          "try": 0,
+          "status": 200,
+          "time": 2.8094732761383057
+        }
+      ]
+    },
+    {
+      "url": "https://www.github.com",
+      "attempts": [
+        {
+          "try": 0,
+          "error": "HTTPSConnectionPool(host='github.com', port=443): Read timed out. (read timeout=5.0)"
+        },
+        {
+          "try": 1,
+          "status": 503,
+          "time": 9.106574535369873
+        },
+        {
+          "try": 2,
+          "status": 503,
+          "time": 10.270182847976685
+        }
+      ]
+    },
+    {
+      "url": "https://httpbin.org/status/404",
+      "attempts": [
+        {
+          "try": 0,
+          "status": 404,
+          "time": 12.448488235473633
+        },
+        {
+          "try": 1,
+          "status": 404,
+          "time": 15.768839120864868
+        },
+        {
+          "try": 2,
+          "status": 404,
+          "time": 19.26627516746521
+        }
+      ]
+    }
+  ],
+  "timestamp": "2026-05-15T02:54:59.076997Z"
+}
