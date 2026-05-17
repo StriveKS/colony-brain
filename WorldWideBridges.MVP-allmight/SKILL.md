@@ -19,6 +19,7 @@ A missao e ajudar qualquer pessoa, em qualquer lugar, a transformar uma ideia em
 4. Memory-first: nenhum projeto deve avancar sem memoria operacional.
 5. Mobile-first quando possivel: oferecer caminhos executaveis com celular, navegador e chat com LLM.
 6. MVP-first: criar movimento, aprendizado, validacao e entrega real antes de superengenharia.
+7. Skill-ecosystem-first: quando um processo, workflow ou solucao criada for reutilizavel, avaliar se pode virar uma nova Skill, aprimoramento ou experimento para o colony-brain.
 
 ## Quando usar
 
@@ -48,6 +49,7 @@ Sempre que a Skill for ativada, entregue pelo menos:
 8. Limites da solucao gratuita.
 9. Ponto de migracao.
 10. Proxima acao concreta.
+11. Quando houver workflow reutilizavel, uma nota opcional indicando se aquilo pode virar Skill, aprimoramento ou experimento para o colony-brain.
 
 ## Onboarding obrigatorio de projeto
 
@@ -215,6 +217,55 @@ Exemplos:
 
 Depois de usar outra LLM, sempre traga o resultado de volta para `PROJECT_HISTORY.md`.
 
+## Protocolo colony-brain: oportunidades de novas Skills
+
+O colony-brain deve funcionar como a base central de Skills originais, aprimoramentos e padroes de revisao. Esta Skill deve ajudar a identificar quando uma solucao criada durante um projeto pode virar uma contribuicao reutilizavel.
+
+Sugira criar uma nova Skill, aprimorar uma Skill existente ou registrar um experimento quando identificar que:
+
+- o usuario criou um processo repetivel que poderia ajudar outras pessoas;
+- o projeto exigiu uma combinacao criativa de ferramentas que pode ser reaproveitada;
+- o usuario resolveu um problema comum de MVP, marketing, design, entrega, automacao, dados, codigo ou organizacao;
+- nao existe Skill semelhante conhecida no repo ou nas referencias disponiveis;
+- a ideia criada no projeto poderia melhorar uma Skill existente;
+- um prompt, script, checklist ou fluxo ficou util o suficiente para virar modulo independente;
+- o mesmo padrao apareceu mais de uma vez em projetos diferentes.
+
+Nao interrompa o projeto principal com excesso de sugestoes. Use uma nota leve e acionavel:
+
+```text
+Nota colony-brain: este fluxo parece reutilizavel e pode virar uma Skill depois. Posso registrar como oportunidade no historico do projeto.
+```
+
+Quando o usuario aceitar, gere uma proposta minima:
+
+1. Nome sugerido.
+2. Tipo: Nova Skill, Aprimoramento ou Experimental.
+3. Problema que resolve.
+4. Para quem serve.
+5. Quando usar.
+6. Quando nao usar.
+7. Processo que ela padroniza.
+8. Arquivos recomendados.
+9. Ferramentas envolvidas.
+10. Riscos e cuidados.
+11. Proximo passo para empacotar.
+
+Registre a oportunidade no `PROJECT_HISTORY.md` neste formato:
+
+```md
+## Oportunidade para colony-brain
+
+- Tipo: Nova Skill / Aprimoramento / Experimental
+- Nome sugerido:
+- Motivo:
+- Processo reutilizavel:
+- Arquivos possiveis:
+- Status: Ideia / Rascunho / Submetido / Aprovado / Publicado
+```
+
+Consulte `references/skill-generation-protocol.md` como protocolo detalhado.
+
 ## Recomendacao de videos
 
 Quando o objetivo envolver ferramenta visual, interface com muitos cliques, autorizacao de conexao, publicacao, dominio, deploy, design, video ou automacao visual, recomende tutoriais em video quando isso economizar tempo.
@@ -236,6 +287,7 @@ De preferencia ao idioma nativo do usuario. Nao invente titulos especificos sem 
 - Nao depender de ferramenta pouco confiavel sem alternativa.
 - Nao avancar sem memoria operacional quando o projeto estiver comecando.
 - Nao inventar custos, limites atuais ou disponibilidade de planos; verificar quando a informacao for sensivel ou recente.
+- Nao sugerir publicacao de Skill sem considerar risco, utilidade, clareza e possibilidade real de reutilizacao.
 
 ## Formato recomendado de resposta
 
@@ -251,3 +303,4 @@ Use esta estrutura quando couber:
 8. Limites e migracao.
 9. Atualizacao recomendada no PROJECT_HISTORY.md.
 10. Proxima acao concreta.
+11. Nota colony-brain, quando houver oportunidade real de nova Skill ou aprimoramento.
