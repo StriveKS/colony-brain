@@ -12,6 +12,20 @@ Useful workflows become Skills.
 Skills improve future projects.
 ```
 
+## Public entry points
+
+### WorldWideBridges.MVP-allmight landing page
+
+```text
+https://striveks.github.io/WorldWideBridges.MVP-allmight/
+```
+
+### WorldWideBridges.MVP-allmight repository
+
+```text
+https://github.com/StriveKS/WorldWideBridges.MVP-allmight
+```
+
 ## Official Skills
 
 ### WorldWideBridges.MVP-allmight
@@ -30,6 +44,78 @@ Local mirror inside this repo:
 WorldWideBridges.MVP-allmight/
 ```
 
+### colony-brain.skill-forge
+
+Skill for helping users create, package, review and submit new Skills to the colony-brain ecosystem.
+
+Path:
+
+```text
+skills/official/colony-brain.skill-forge/
+```
+
+Status:
+
+```text
+Draft / early official Skill
+```
+
+## Experimental Skills
+
+### example-free-first-lead-capture
+
+Experimental test Skill used to validate the contribution flow from opportunity detection to review and publication.
+
+Path:
+
+```text
+skills/experimental/example-free-first-lead-capture/
+```
+
+Status:
+
+```text
+Experimental test fixture
+```
+
+## Contribution flow
+
+colony-brain supports a simple Skill submission flow using Google Drive and GitHub.
+
+```text
+Workflow or idea
+-> Skill opportunity
+-> Draft package
+-> Drive submission
+-> Review
+-> Approved / Experimental / Rejected
+-> GitHub publication
+```
+
+Drive submission documentation:
+
+```text
+governance/DRIVE_SUBMISSION_FLOW.md
+```
+
+Submission template:
+
+```text
+governance/SKILL_SUBMISSION_TEMPLATE.md
+```
+
+Review template:
+
+```text
+governance/SKILL_REVIEW_TEMPLATE.md
+```
+
+Drive infrastructure script:
+
+```text
+scripts/criar-infra-submissoes-colony-brain.gs
+```
+
 ## Ecosystem roles
 
 ```text
@@ -37,10 +123,13 @@ colony-brain
 = parent ecosystem, brand, index, governance and review base.
 
 WorldWideBridges.MVP-allmight
-= first official installable Skill package.
+= first official installable Skill package and free-first MVP operator.
 
-Future colony-brain.skill-forge
-= Skill for helping users create and submit new Skills.
+colony-brain.skill-forge
+= Skill for transforming reusable workflows into publishable Skills.
+
+Experimental Skills
+= testable, unstable or early workflows that may become official later.
 ```
 
 ## Skill lifecycle
@@ -60,6 +149,28 @@ Idea or workflow
 - Use dedicated repositories for clean installable Skill packages.
 - Keep public Skills easy to copy, install, fork and adapt.
 - Keep project memory and review standards explicit.
+- Keep experimental Skills separate from official Skills until reviewed.
+
+## Current repository map
+
+```text
+skills/
+  official/
+    colony-brain.skill-forge/
+  experimental/
+    example-free-first-lead-capture/
+
+governance/
+  DRIVE_SUBMISSION_FLOW.md
+  SKILL_SUBMISSION_TEMPLATE.md
+  SKILL_REVIEW_TEMPLATE.md
+
+scripts/
+  criar-infra-submissoes-colony-brain.gs
+
+WorldWideBridges.MVP-allmight/
+  Local mirror of the first official Skill package.
+```
 
 ## Status
 
