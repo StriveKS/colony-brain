@@ -2,6 +2,24 @@
 
 This flow lets contributors create Skills through chat and submit them for review through Google Drive.
 
+## Automatic infrastructure setup
+
+Use the Apps Script below to create the Drive folders, contributor guides and tracking spreadsheet automatically:
+
+```text
+scripts/criar-infra-submissoes-colony-brain.gs
+```
+
+### How to run
+
+1. Open `script.google.com`.
+2. Create a new Apps Script project.
+3. Paste the content of `scripts/criar-infra-submissoes-colony-brain.gs`.
+4. Optional: set `CONFIG.pastaProjetosId` if you already have a `Projetos` folder.
+5. Run `criarInfraSubmissoesColonyBrain`.
+6. Authorize Drive and Sheets permissions.
+7. Open the generated folder and spreadsheet from the execution logs.
+
 ## Recommended Drive structure
 
 ```text
@@ -13,9 +31,28 @@ Projetos/
       approved/
       rejected/
       published/
+      archived/
     review-logs/
     contributor-guides/
 ```
+
+## Generated spreadsheet
+
+The script creates or updates:
+
+```text
+colony-brain - Skill Submissions
+```
+
+Tabs:
+
+- Submissions
+- Review Queue
+- Approved
+- Published
+- Rejected
+- Contributors
+- Folders
 
 ## Contributor flow
 
@@ -27,12 +64,14 @@ Projetos/
    - examples/templates/scripts if needed
    - SUBMISSION.md
 4. User saves the package in `skill-submissions/incoming`.
-5. Maintainer reviews through a connected LLM.
-6. Maintainer moves the package to:
+5. User or maintainer records it in the `Submissions` tab.
+6. Maintainer reviews through a connected LLM.
+7. Maintainer moves the package to:
    - `under-review`
    - `approved`
    - `rejected`
    - `published`
+   - `archived`
 
 ## Maintainer review prompt
 
