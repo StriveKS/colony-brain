@@ -14,6 +14,12 @@ Skills improve future projects.
 
 ## Public entry points
 
+### WorldWideBridges.MVP-allmight GPT
+
+```text
+https://chatgpt.com/g/g-6a0a755a220881918878077b69e285fd-worldwidebridges-mvp-allmight
+```
+
 ### WorldWideBridges.MVP-allmight landing page
 
 ```text
@@ -31,6 +37,12 @@ https://github.com/StriveKS/WorldWideBridges.MVP-allmight
 ### WorldWideBridges.MVP-allmight
 
 Free-first MVP Skill for creating, organizing, launching and improving projects using native connections, Google Workspace, GitHub, Apps Script, lightweight databases, marketing, delivery and portable project memory.
+
+Official GPT:
+
+```text
+https://chatgpt.com/g/g-6a0a755a220881918878077b69e285fd-worldwidebridges-mvp-allmight
+```
 
 Official package:
 
@@ -123,7 +135,7 @@ colony-brain
 = parent ecosystem, brand, index, governance and review base.
 
 WorldWideBridges.MVP-allmight
-= first official installable Skill package and free-first MVP operator.
+= first official installable Skill package, public GPT and free-first MVP operator.
 
 colony-brain.skill-forge
 = Skill for transforming reusable workflows into publishable Skills.
