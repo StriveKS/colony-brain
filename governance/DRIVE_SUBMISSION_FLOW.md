@@ -1,6 +1,6 @@
 # Drive Submission Flow
 
-This flow lets contributors create Skills through chat and submit them for review through Google Drive.
+This flow lets contributors create Skills through chat and submit them for review through Google Drive, Google Forms and GitHub.
 
 ## Automatic infrastructure setup
 
@@ -10,7 +10,7 @@ Use the Apps Script below to create the Drive folders, contributor guides and tr
 scripts/criar-infra-submissoes-colony-brain.gs
 ```
 
-### How to run
+### How to run infrastructure setup
 
 1. Open `script.google.com`.
 2. Create a new Apps Script project.
@@ -19,6 +19,24 @@ scripts/criar-infra-submissoes-colony-brain.gs
 5. Run `criarInfraSubmissoesColonyBrain`.
 6. Authorize Drive and Sheets permissions.
 7. Open the generated folder and spreadsheet from the execution logs.
+
+## Skill submission form setup
+
+Use this Apps Script to create a public Google Form for Skill submissions:
+
+```text
+scripts/criar-form-submissao-skills-colony-brain.gs
+```
+
+### How to run form setup
+
+1. Open `script.google.com`.
+2. Create a new Apps Script project or reuse the colony-brain setup project.
+3. Paste the content of `scripts/criar-form-submissao-skills-colony-brain.gs`.
+4. Confirm the spreadsheet ID points to `colony-brain - Skill Submissions`.
+5. Run `criarFormSubmissaoSkillsColonyBrain`.
+6. Authorize Forms, Drive, Sheets and Gmail permissions.
+7. Copy the public form URL from the execution logs or the `Folders` tab.
 
 ## Recommended Drive structure
 
@@ -53,6 +71,8 @@ Tabs:
 - Rejected
 - Contributors
 - Folders
+- Form Setup
+- Form Responses 1, created automatically by Google Forms
 
 ## Contributor flow
 
@@ -63,10 +83,11 @@ Tabs:
    - README.md
    - examples/templates/scripts if needed
    - SUBMISSION.md
-4. User saves the package in `skill-submissions/incoming`.
-5. User or maintainer records it in the `Submissions` tab.
-6. Maintainer reviews through a connected LLM.
-7. Maintainer moves the package to:
+4. User submits through the public Google Form.
+5. Form response enters the spreadsheet.
+6. Maintainer reviews the response and attached/linked package.
+7. Maintainer normalizes accepted submissions into the `Submissions` tab.
+8. Maintainer moves the package/status to:
    - `under-review`
    - `approved`
    - `rejected`
@@ -82,7 +103,7 @@ Review the pending Skill submissions in Drive. For each submission, evaluate use
 ## Publication flow
 
 ```text
-Drive incoming -> review -> approved -> GitHub colony-brain -> published
+Google Form -> spreadsheet response -> review -> approved -> GitHub colony-brain -> published
 ```
 
 ## Status values
@@ -95,3 +116,17 @@ Drive incoming -> review -> approved -> GitHub colony-brain -> published
 - Published
 - Rejected
 - Archived
+
+## Public channels
+
+Primary channel for non-technical users:
+
+```text
+Google Form submission
+```
+
+Primary channel for developers:
+
+```text
+GitHub Issue / Pull Request
+```
