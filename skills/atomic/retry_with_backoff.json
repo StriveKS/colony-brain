@@ -1,0 +1,47 @@
+{
+  "skill_id": "retry_with_backoff",
+  "name": "Retry With Backoff",
+  "version": "0.1.0",
+  "status": "experimental",
+  "environment": "web_fetch",
+  "barriers": ["timeout", "rate_limit", "temporary_server_error"],
+  "description": "Repete uma tentativa após falha recuperável usando espera progressiva entre tentativas.",
+  "preconditions": ["A falha foi classificada como recuperável", "O agente ainda está dentro do timeout máximo"],
+  "inputs": {
+    "attempt_index": "integer",
+    "base_wait_seconds": "number",
+    "max_wait_seconds": "number"
+  },
+  "outputs": {
+    "wait_seconds": "number",
+    "should_retry": "boolean"
+  },
+  "parameters": {
+    "base_wait_seconds": 1.0,
+    "multiplier": 2.0,
+    "jitter": true,
+    "max_wait_seconds": 8.0
+  },
+  "risks": ["Aumentar duração total da tarefa", "Repetir falhas permanentes se a classificação estiver errada"],
+  "evidence": [
+    {
+      "source": "mvp_task_01 logs",
+      "summary": "Os agentes usaram retry fixo; transformar isso em backoff permite reduzir pressão sobre endpoints e melhorar recuperação em erros temporários.",
+      "generation": 1
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "retry_after_503",
+      "description": "Dado status 503 e tentativa abaixo do limite, deve recomendar nova tentativa.",
+      "expected_result": "should_retry=true"
+    },
+    {
+      "test_id": "do_not_retry_expected_404",
+      "description": "Dado status 404 esperado, não deve recomendar retry.",
+      "expected_result": "should_retry=false"
+    }
+  ],
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
