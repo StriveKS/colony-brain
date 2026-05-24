@@ -1,0 +1,43 @@
+{
+  "skill_id": "classify_http_status",
+  "name": "Classify HTTP Status",
+  "version": "0.1.0",
+  "status": "validated",
+  "environment": "web_fetch",
+  "barriers": ["unexpected_http_status", "http_error_response"],
+  "description": "Classifica respostas HTTP como sucesso, erro esperado, erro recuperável ou falha, permitindo que a tarefa trate status não-2xx como resultado válido quando esperado.",
+  "preconditions": ["A resposta HTTP contém status_code", "A tarefa define expected_status ou faixa aceitável"],
+  "inputs": {
+    "status_code": "integer",
+    "expected_status": "integer | array | range"
+  },
+  "outputs": {
+    "classification": "success | expected_error | retryable_error | failure"
+  },
+  "parameters": {
+    "retryable_statuses": [429, 500, 502, 503, 504]
+  },
+  "risks": ["Classificar erro real como esperado se a tarefa estiver mal definida"],
+  "evidence": [
+    {
+      "source": "mvp_task_01 logs",
+      "summary": "Os logs mostraram que status 404 era parte do ambiente de teste, mas a métrica anterior tratava qualquer não-2xx como falha operacional. Esta skill corrige essa ambiguidade.",
+      "fitness_delta": 0,
+      "generation": 1
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "classify_expected_404",
+      "description": "Dado status 404 e expected_status 404, deve classificar como expected_error.",
+      "expected_result": "expected_error"
+    },
+    {
+      "test_id": "classify_200_success",
+      "description": "Dado status 200 e expected_status 200, deve classificar como success.",
+      "expected_result": "success"
+    }
+  ],
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
