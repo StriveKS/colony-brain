@@ -1,0 +1,23 @@
+{
+  "combination_id": "web_fetch_status_v1_recommended_001",
+  "task_id": "web_fetch_status_v1",
+  "mode": "recommended",
+  "skills": [
+    {"skill_id": "classify_http_status", "version": "0.1.0", "status_at_selection": "validated"},
+    {"skill_id": "validate_output_schema", "version": "0.1.0", "status_at_selection": "validated"},
+    {"skill_id": "retry_with_backoff", "version": "0.1.0", "status_at_selection": "experimental"},
+    {"skill_id": "recover_from_timeout", "version": "0.1.0", "status_at_selection": "experimental"}
+  ],
+  "selection_reason": "Combinação inicial para corrigir ambiguidade do MVP: tratar status esperado como resultado válido, recuperar falhas temporárias e validar logs antes de alimentar a Rainha.",
+  "known_compatibilities": [
+    "classify_http_status deve rodar antes de retry_with_backoff para evitar retries em erros esperados.",
+    "validate_output_schema deve rodar no final do ciclo para garantir que o log pode entrar no Cérebro."
+  ],
+  "known_incompatibilities": [],
+  "operational_risk": "medium",
+  "tested_by": [],
+  "test_results": [],
+  "recommendation": "test_more",
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
