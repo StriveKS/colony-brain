@@ -1,0 +1,43 @@
+{
+  "skill_id": "validate_output_schema",
+  "name": "Validate Output Schema",
+  "version": "0.1.0",
+  "status": "validated",
+  "environment": "general",
+  "barriers": ["malformed_output", "missing_fields", "invalid_log"],
+  "description": "Valida se a saída de uma tarefa ou log de agente contém os campos obrigatórios antes de ser usada pela Rainha ou persistida como evidência no Cérebro.",
+  "preconditions": ["Existe um schema JSON declarado para o artefato"],
+  "inputs": {
+    "payload": "object",
+    "schema_id": "string"
+  },
+  "outputs": {
+    "valid": "boolean",
+    "errors": "array"
+  },
+  "parameters": {
+    "fail_closed": true
+  },
+  "risks": ["Pode bloquear dados úteis se o schema estiver rígido demais"],
+  "evidence": [
+    {
+      "source": "Fase 1.5 architecture update",
+      "summary": "A evolução por skills exige logs e definições confiáveis; validação de schema é pré-condição para promover skills.",
+      "generation": 1
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "reject_missing_agent_id",
+      "description": "Dado agent_log sem agent_id, deve retornar inválido.",
+      "expected_result": "valid=false"
+    },
+    {
+      "test_id": "accept_valid_skill_manifest",
+      "description": "Dado log com skills_manifest válido, deve retornar válido.",
+      "expected_result": "valid=true"
+    }
+  ],
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
