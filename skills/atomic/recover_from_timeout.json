@@ -1,0 +1,41 @@
+{
+  "skill_id": "recover_from_timeout",
+  "name": "Recover From Timeout",
+  "version": "0.1.0",
+  "status": "experimental",
+  "environment": "web_fetch",
+  "barriers": ["timeout", "slow_endpoint"],
+  "description": "Detecta timeout de rede, registra a barreira e permite que o agente tente recuperação controlada com ajuste de timeout, retry ou fallback.",
+  "preconditions": ["A exceção ou evento foi identificado como timeout", "A política da tarefa permite retry ou fallback"],
+  "inputs": {
+    "error": "string",
+    "timeout_seconds": "number",
+    "attempt_index": "integer"
+  },
+  "outputs": {
+    "barrier": "timeout",
+    "recommended_action": "retry | increase_timeout | fallback | abort"
+  },
+  "parameters": {
+    "max_timeout_seconds": 10.0,
+    "increase_factor": 1.5
+  },
+  "risks": ["Aumentar consumo de tempo em endpoints permanentemente lentos"],
+  "evidence": [
+    {
+      "source": "agent_1d546d4b_1778813699.json",
+      "summary": "Log da geração 0 registrou timeout em github.com antes de respostas 503 posteriores, mostrando necessidade de tratar timeout como barreira específica.",
+      "agent_id": "agent_1d546d4b",
+      "generation": 0
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "detect_read_timeout",
+      "description": "Dado erro contendo Read timed out, deve classificar barreira como timeout.",
+      "expected_result": "barrier=timeout"
+    }
+  ],
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
