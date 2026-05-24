@@ -1,0 +1,22 @@
+{
+  "combination_id": "web_fetch_status_v1_exploratory_001",
+  "task_id": "web_fetch_status_v1",
+  "mode": "random_controlled",
+  "skills": [
+    {"skill_id": "classify_http_status", "version": "0.1.0", "status_at_selection": "validated"},
+    {"skill_id": "retry_with_backoff", "version": "0.1.0", "status_at_selection": "experimental"}
+  ],
+  "selection_reason": "Combinação exploratória mínima para comparar custo, tempo e estabilidade contra a combinação recomendada principal.",
+  "known_compatibilities": [
+    "classify_http_status ajuda a evitar repetição desnecessária quando o status recebido é esperado."
+  ],
+  "known_incompatibilities": [
+    "Esta combinação precisa de validação externa do log antes de promoção."
+  ],
+  "operational_risk": "medium",
+  "tested_by": [],
+  "test_results": [],
+  "recommendation": "test_more",
+  "created_at": "2026-05-15T12:00:00Z",
+  "updated_at": "2026-05-15T12:00:00Z"
+}
