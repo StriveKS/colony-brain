@@ -1,0 +1,33 @@
+{
+  "updated_at": "2026-05-15T12:00:00Z",
+  "skills": [
+    {
+      "skill_id": "classify_http_status",
+      "version": "0.1.0",
+      "status": "validated",
+      "environment": "web_fetch",
+      "path": "skills/atomic/classify_http_status.json"
+    },
+    {
+      "skill_id": "retry_with_backoff",
+      "version": "0.1.0",
+      "status": "experimental",
+      "environment": "web_fetch",
+      "path": "skills/atomic/retry_with_backoff.json"
+    },
+    {
+      "skill_id": "recover_from_timeout",
+      "version": "0.1.0",
+      "status": "experimental",
+      "environment": "web_fetch",
+      "path": "skills/atomic/recover_from_timeout.json"
+    },
+    {
+      "skill_id": "validate_output_schema",
+      "version": "0.1.0",
+      "status": "validated",
+      "environment": "general",
+      "path": "skills/atomic/validate_output_schema.json"
+    }
+  ]
+}
